@@ -1,0 +1,72 @@
+﻿<Window x:Class="DatabaseSQLTodoListApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseSQLTodoListApp"
+        xmlns:views="clr-namespace:DatabaseSQLTodoListApp.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#2C2E46">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="120"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <!--First row-->
+        <Button>
+            <TextBlock Text="ADD" Style="{StaticResource DarkTextBlokStyle}"/>
+        </Button>
+        <TextBlock Grid.Column="1" Text="TO DO" FontSize="50"/>
+
+        <!--Second row-->
+        <Grid Grid.Row="1" Style="{StaticResource TaskListStyle}">
+            <Border Style="{StaticResource GridBorderStyle}"/>
+            
+        </Grid>
+
+        <views:TaskList Grid.Row="1" Grid.Column="1"/>
+
+        <Grid Grid.Row="1" Grid.Column="2" Style="{StaticResource TaskListStyle}">
+            <Border Style="{StaticResource GridBorderStyle}"/>
+            <ListView x:Name="TaskList" Background="Transparent" BorderThickness="0">
+                <ListViewItem/>
+                <ListViewItem/>
+                <ListViewItem/>
+                <ListView.View>
+                    <GridView>
+                        <GridView.ColumnHeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="Background" Value="#1B1F31"/>
+                                <Setter Property="BorderThickness" Value="20"/>
+                            </Style>
+                        </GridView.ColumnHeaderContainerStyle>
+                        
+                        <GridViewColumn Header="ColumnHeader">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="Text"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="ColumnHeader">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="Text"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+
+</Window>
