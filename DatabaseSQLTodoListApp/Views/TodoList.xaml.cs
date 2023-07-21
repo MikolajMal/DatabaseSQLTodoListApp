@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace DatabaseSQLTodoListApp.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddTodo.xaml
+    /// Logika interakcji dla klasy TodoList.xaml
     /// </summary>
-    public partial class AddTodo : UserControl
+    public partial class TodoList : UserControl
     {
-        public AddTodo()
+        public TodoList()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Close();
         }
     }
 }

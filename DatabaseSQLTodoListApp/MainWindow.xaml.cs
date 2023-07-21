@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DatabaseSQLTodoListApp.Views;
 using DatabaseSQLTodoListApp.ViewModel;
 
 namespace DatabaseSQLTodoListApp
@@ -22,18 +23,37 @@ namespace DatabaseSQLTodoListApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        TaskViewModel taskViewModel;
+        AddTodoWindow addTodoWindow;
+        //Window window = new Window
+        //{
+        //    Title = "Add todo task",
+        //    Content = new AddTodoWindow(),
+        //    SizeToContent = SizeToContent.WidthAndHeight,
+        //    WindowStyle = WindowStyle.None,
+        //    AllowsTransparency= true,
+        //};
+
         public MainWindow()
         {
             InitializeComponent();
-
-            taskViewModel = new TaskViewModel();
-            DataContext = taskViewModel;
         }
 
-        void AddButtonClicked(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            taskViewModel.UpdateTasks();
+            //window.MouseDown += Window_MouseDown;
+            //window.ShowDialog();
+            addTodoWindow = new AddTodoWindow();
+            addTodoWindow.MouseDown += Window_MouseDown;
+            addTodoWindow.ShowDialog();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //if (e.ChangedButton == MouseButton.Left)
+            //    window.DragMove();
+            if (e.ChangedButton == MouseButton.Left)
+                addTodoWindow.DragMove();
+
         }
     }
 }

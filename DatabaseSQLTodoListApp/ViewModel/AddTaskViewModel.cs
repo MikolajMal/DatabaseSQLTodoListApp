@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace DatabaseSQLTodoListApp.ViewModel
 {
+    public enum Category { home, work, hobby, sport, learning, other }
     public class AddTaskViewModel : ViewModelBase
     {
-        string userName;
-        public string UserName
+        string taskName;
+        public string TaskName
         {
-            get => userName;
+            get => taskName;
             set
             {
-                userName = value;
-                OnPropertyChanged(nameof(UserName));
+                taskName = value;
+                OnPropertyChanged(nameof(TaskName));
             }
         }
 
@@ -31,5 +33,23 @@ namespace DatabaseSQLTodoListApp.ViewModel
         }
 
 
+        Category category;
+        public Category CurrentCategory
+        {
+            get => category;
+            set
+            {
+                category = value;
+                OnPropertyChanged(nameof(CurrentCategory));
+            }
+        }
+
+        public ICommand AddCommand { get; }
+        public ICommand CancelCommand { get; }
+
+        public AddTaskViewModel()
+        {
+
+        }
     }
 }

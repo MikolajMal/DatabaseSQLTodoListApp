@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DatabaseSQLTodoListApp.Views
+namespace DatabaseSQLTodoListApp
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddTodo.xaml
+    /// Logika interakcji dla klasy AddTodoWindow.xaml
     /// </summary>
-    public partial class AddTodo : UserControl
+    public partial class AddTodoWindow : Window
     {
-        public AddTodo()
+        public AddTodoWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Close();
         }
     }
 }

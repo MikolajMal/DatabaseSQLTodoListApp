@@ -5,68 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatabaseSQLTodoListApp"
         xmlns:views="clr-namespace:DatabaseSQLTodoListApp.Views"
+        xmlns:viewModels="clr-namespace:DatabaseSQLTodoListApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#2C2E46">
+        Title="MainWindow" Height="600" Width="360" 
+        AllowsTransparency="True" WindowStyle="None" Background="Transparent">
+    <Border
+        Background="#2C2E46"
+        BorderThickness="1"
+        CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="120"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="120"/>
-            <RowDefinition Height="3*"/>
-        </Grid.RowDefinitions>
+            <!--First row-->
+            <TextBlock Grid.Column="1" Text="TO DO" FontSize="50"/>
 
-        <!--First row-->
-        <Button>
-            <TextBlock Text="ADD" Style="{StaticResource DarkTextBlokStyle}"/>
-        </Button>
-        <TextBlock Grid.Column="1" Text="TO DO" FontSize="50"/>
+            <!--Second row-->
+            <Grid Grid.Row="1" Style="{StaticResource TaskListStyle}">
+                <views:TodoList DataContext="{Binding todoListViewModel}"/>
+            </Grid>
 
-        <!--Second row-->
-        <Grid Grid.Row="1" Style="{StaticResource TaskListStyle}">
-            <Border Style="{StaticResource GridBorderStyle}"/>
-            
+
+            <!--Third row-->
+            <Button Grid.Row="2" Command="{Binding ShowAddTodoWindowCommand}">
+                <TextBlock Text="ADD" Style="{StaticResource DarkTextBlokStyle}"/>
+            </Button>
         </Grid>
-
-        <views:TaskList Grid.Row="1" Grid.Column="1"/>
-
-        <Grid Grid.Row="1" Grid.Column="2" Style="{StaticResource TaskListStyle}">
-            <Border Style="{StaticResource GridBorderStyle}"/>
-            <ListView x:Name="TaskList" Background="Transparent" BorderThickness="0">
-                <ListViewItem/>
-                <ListViewItem/>
-                <ListViewItem/>
-                <ListView.View>
-                    <GridView>
-                        <GridView.ColumnHeaderContainerStyle>
-                            <Style TargetType="GridViewColumnHeader">
-                                <Setter Property="Background" Value="#1B1F31"/>
-                                <Setter Property="BorderThickness" Value="20"/>
-                            </Style>
-                        </GridView.ColumnHeaderContainerStyle>
-                        
-                        <GridViewColumn Header="ColumnHeader">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="Text"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-
-                        <GridViewColumn Header="ColumnHeader">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="Text"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </Grid>
-    </Grid>
+    </Border>
 
 </Window>
