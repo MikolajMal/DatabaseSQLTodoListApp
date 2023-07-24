@@ -8,14 +8,14 @@ namespace DatabaseSQLTodoListApp.Models
     public class TaskModel
     {
         public int ID { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public DateTime Deadline { get; set; }
         public string Category { get; set; }
         public bool IsDone { get; set; }
 
         public TaskModel(string name, string category, DateTime deadline)
         {
-            name = Name;
+            Name = name;
             Category = category;
             Deadline = deadline;
         }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace DatabaseSQLTodoListApp.ViewModel
 {
@@ -14,6 +15,10 @@ namespace DatabaseSQLTodoListApp.ViewModel
         public string? Name => taskModel.Name;
         public DateTime Deadline => taskModel.Deadline;
         public string Category => taskModel.Category;
+
+        public ICommand EditCommand;
+        public ICommand DeleteCommand;
+        
 
         public TaskViewModel(TaskModel _taskModel)
         {

@@ -8,26 +8,28 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Border Style="{StaticResource GridBorderStyle}">
-            <!--Another grid to make custom border and opacity for ListView showing problems-->
-            <Grid>
-                <Grid.OpacityMask>
-                    <VisualBrush Visual="{Binding ElementName=border}"/>
-                </Grid.OpacityMask>
-                <ListView ItemsSource="{Binding Tasks}">
-                    <!--<ListView.ItemContainerStyle>
+            <ListView ItemsSource="{Binding TaskViewModels}">
+                <!--<ListView.ItemContainerStyle>
                             </ListView.ItemContainerStyle>-->
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="Images/Checkbox.png"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="40" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox/>
+                                <StackPanel Grid.Column="1" Orientation="Vertical">
                                 <TextBlock Style="{StaticResource DarkTextBlokStyle}" Text="{Binding Name}"/>
-                                <TextBlock Text="{Binding Category}"/>
-                                <TextBlock Text="{Binding Deadline}"/>
+                                <TextBlock Style="{StaticResource DarkTextBlokStyle}" Text="{Binding Deadline}"/>
                             </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
+
+                            <TextBlock Grid.Column="2" Style="{StaticResource DarkTextBlokStyle}" Text="{Binding Category}" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Border>
     </Grid>
 </UserControl>
