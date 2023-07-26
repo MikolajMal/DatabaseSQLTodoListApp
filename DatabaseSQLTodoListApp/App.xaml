@@ -64,6 +64,11 @@
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="CornerRadius" Value="6" />
         </Style>
+        <Style TargetType="Border" x:Key="LightGridBorderStyle" BasedOn="{StaticResource GridBorderStyle}">
+            <Setter Property="Background" Value="#D9D9D9" />
+            <Setter Property="BorderBrush" Value="#D9D9D9" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
         <Style TargetType="Grid" x:Key="TaskListStyle">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
