@@ -21,11 +21,15 @@
         </Style>
 
         <!--Button style-->
-        <Style x:Key="AddTodoButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-            <Setter Property="Background" Value="#2C2E46"/>
+        <Style x:Key="AddTodoButtonStyle" TargetType="Button" BasedOn="{StaticResource DarkButtonStyle}">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="70"/>
             <Setter Property="Margin" Value="5"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.6"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <!--Control style-->
@@ -98,7 +102,8 @@
 
             <!--Eighth row-->
             <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Style="{StaticResource AddTodoButtonStyle}" Command="{Binding AddCommand}">
+                <Button Style="{StaticResource AddTodoButtonStyle}" Command="{Binding AddCommand}"
+                        IsEnabled="{Binding CanAdd}">
                     <TextBlock Text="ADD" Style="{StaticResource AddTodoWhiteTextBlockStyle}"/>
                 </Button>
                 <Button Style="{StaticResource AddTodoButtonStyle}" Command="{Binding CancelCommand}">

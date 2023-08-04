@@ -21,12 +21,16 @@
     <Grid HorizontalAlignment="Center">
         <Border Padding="10" Style="{StaticResource GridBorderStyle}">
             <ListView Background="Transparent" BorderThickness="0" ItemsSource="{Binding TaskViewModels}">
-                <!--<ListView.ItemContainerStyle>
-                </ListView.ItemContainerStyle>-->
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <!--Straching items-->
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Style="{StaticResource LightGridBorderStyle}">
-                            <Grid Width="260" Height="40">
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="3*"/>

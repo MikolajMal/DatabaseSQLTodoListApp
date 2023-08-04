@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DatabaseSQLTodoListApp.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DatabaseSQLTodoListApp.ViewModel
@@ -18,6 +20,7 @@ namespace DatabaseSQLTodoListApp.ViewModel
             {
                 taskName = value;
                 OnPropertyChanged(nameof(TaskName));
+                OnPropertyChanged(nameof(CanAdd));
             }
         }
 
@@ -44,12 +47,17 @@ namespace DatabaseSQLTodoListApp.ViewModel
             }
         }
 
+        public bool CanAdd => !string.IsNullOrEmpty(taskName);
+
         public ICommand AddCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddTaskViewModel()
+        public AddTaskViewModel(Window addTodoWindow)
         {
+            CancelCommand = new CancelCommand(addTodoWindow);
 
+            TaskName = "Default Name";
+            Deadline = DateTime.Now;
         }
     }
 }

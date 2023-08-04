@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DatabaseSQLTodoListApp.ViewModel
@@ -20,11 +21,11 @@ namespace DatabaseSQLTodoListApp.ViewModel
 
         public ICommand ShowAddTodoWindowCommand { get; }
 
-        public MainViewModel()
+        public MainViewModel(Window mainWindow)
         {
             todoListViewModel= new TodoListViewModel();
 
-            //ShowAddTodoWindowCommand = new ShowAddTodoWindowCommand();
+            ShowAddTodoWindowCommand = new ShowAddTodoWindowCommand(mainWindow);
 
             //tasks = new ObservableCollection<TaskViewModel>();
 

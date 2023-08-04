@@ -9,7 +9,7 @@ namespace DatabaseSQLTodoListApp.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public DateTime Deadline { get; set; }
+        public string Deadline { get; set; }
         public string Category { get; set; }
         public bool IsDone { get; set; }
 
@@ -17,7 +17,7 @@ namespace DatabaseSQLTodoListApp.Models
         {
             Name = name;
             Category = category;
-            Deadline = deadline;
+            Deadline = deadline.ToString("f");
         }
     }
 }

@@ -13,12 +13,10 @@ namespace DatabaseSQLTodoListApp.ViewModel
         TaskModel taskModel;
 
         public string? Name => taskModel.Name;
-        public DateTime Deadline => taskModel.Deadline;
+        public string Deadline => taskModel.Deadline;
         public string Category => taskModel.Category;
 
         public ICommand EditCommand;
-        public ICommand DeleteCommand;
-        
 
         public TaskViewModel(TaskModel _taskModel)
         {

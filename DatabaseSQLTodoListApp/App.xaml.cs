@@ -18,7 +18,7 @@ namespace DatabaseSQLTodoListApp
         {
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel(MainWindow)
             };
             MainWindow.Show();
 
