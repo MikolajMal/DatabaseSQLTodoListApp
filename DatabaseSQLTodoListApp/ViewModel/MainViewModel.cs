@@ -16,22 +16,13 @@ namespace DatabaseSQLTodoListApp.ViewModel
     {
         public TodoListViewModel todoListViewModel { get; }
 
-        //readonly ObservableCollection<TaskViewModel> tasks;
-        //public IEnumerable<TaskViewModel> Tasks => tasks;
-
         public ICommand ShowAddTodoWindowCommand { get; }
 
         public MainViewModel(Window mainWindow)
         {
             todoListViewModel= new TodoListViewModel();
 
-            ShowAddTodoWindowCommand = new ShowAddTodoWindowCommand(mainWindow);
-
-            //tasks = new ObservableCollection<TaskViewModel>();
-
-            //tasks.Add(new TaskViewModel(new TaskModel("Wash the dishes", "home", DateTime.Now)));
-            //tasks.Add(new TaskViewModel(new TaskModel("Walk the dog", "home", DateTime.Now)));
-            //tasks.Add(new TaskViewModel(new TaskModel("Clean up the basement", "home", new DateTime(2023, 09, 16, 12, 30, 0))));
+            ShowAddTodoWindowCommand = new ShowAddTodoWindowCommand(mainWindow, todoListViewModel);
         }
     }
 }

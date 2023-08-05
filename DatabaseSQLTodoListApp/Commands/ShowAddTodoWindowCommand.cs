@@ -13,6 +13,7 @@ namespace DatabaseSQLTodoListApp.Commands
     {
         Window parentWindow;
         AddTodoWindow addTodoWindow;
+        TodoListViewModel todoListViewModel;
 
         public override void Execute(object? parameter)
         {
@@ -21,13 +22,14 @@ namespace DatabaseSQLTodoListApp.Commands
             parentWindow.Effect = blurEffect;
 
             addTodoWindow = new AddTodoWindow();
-            addTodoWindow.DataContext = new AddTaskViewModel(addTodoWindow);
+            addTodoWindow.DataContext = new AddTaskViewModel(addTodoWindow, todoListViewModel);
             addTodoWindow.Owner = parentWindow;
             addTodoWindow.ShowDialog();
         }
 
-        public ShowAddTodoWindowCommand(Window mainWindow)
+        public ShowAddTodoWindowCommand(Window mainWindow, TodoListViewModel originalTodoListViewModel)
         {
+            todoListViewModel = originalTodoListViewModel;
             parentWindow = mainWindow;
         }
     }

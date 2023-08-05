@@ -1,6 +1,7 @@
 ﻿using DatabaseSQLTodoListApp.Commands;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace DatabaseSQLTodoListApp.ViewModel
     public class AddTaskViewModel : ViewModelBase
     {
         string taskName;
+        TodoListViewModel todoListViewModel;
         public string TaskName
         {
             get => taskName;
@@ -52,8 +54,11 @@ namespace DatabaseSQLTodoListApp.ViewModel
         public ICommand AddCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public AddTaskViewModel(Window addTodoWindow)
+        public AddTaskViewModel(Window addTodoWindow, TodoListViewModel originalTodoListViewModel)
         {
+            todoListViewModel = originalTodoListViewModel;
+
+            AddCommand = new AddTodoTaskCommand(todoListViewModel, this);
             CancelCommand = new CancelCommand(addTodoWindow);
 
             TaskName = "Default Name";

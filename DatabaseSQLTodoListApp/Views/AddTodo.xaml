@@ -40,6 +40,12 @@
             <Setter Property="Height" Value="30"/>
         </Style>
 
+        <!--DatePicker style-->
+        <!--to do when sending informations will be done from this UserControl to TodoList-->
+        <!--https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/datepicker-styles-and-templates?view=netframeworkdesktop-4.8-->
+        <Style x:Key="DatePickerStyle" TargetType="DatePicker" BasedOn="{StaticResource InputStyle}">
+        </Style>
+
         <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
                             ObjectType="{x:Type System:Enum}">
             <ObjectDataProvider.MethodParameters>
@@ -99,6 +105,7 @@
             <ComboBox Grid.Row="6" Grid.Column="1" Style="{StaticResource InputStyle}"
                       ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
                       SelectedItem="{Binding CurrentCategory, UpdateSourceTrigger=PropertyChanged}"/>
+
 
             <!--Eighth row-->
             <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">

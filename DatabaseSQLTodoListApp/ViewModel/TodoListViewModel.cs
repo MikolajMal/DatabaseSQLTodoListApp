@@ -10,7 +10,7 @@ namespace DatabaseSQLTodoListApp.ViewModel
 {
     public class TodoListViewModel : ViewModelBase
     {
-        readonly ObservableCollection<TaskViewModel> taskViewModels;
+        ObservableCollection<TaskViewModel> taskViewModels;
         public IEnumerable<TaskViewModel> TaskViewModels => taskViewModels;
 
         public TodoListViewModel()
@@ -20,6 +20,11 @@ namespace DatabaseSQLTodoListApp.ViewModel
             taskViewModels.Add(new TaskViewModel(new TaskModel("Wash the dishes", "home", DateTime.Now)));
             taskViewModels.Add(new TaskViewModel(new TaskModel("Walk the dog", "home", DateTime.Now)));
             taskViewModels.Add(new TaskViewModel(new TaskModel("Clean up the basement", "home", new DateTime(2023, 09, 16, 12, 30, 0))));
+        }
+
+        public void AddTask(TaskViewModel taskViewModel)
+        {
+            taskViewModels.Add(taskViewModel);
         }
     }
 }
