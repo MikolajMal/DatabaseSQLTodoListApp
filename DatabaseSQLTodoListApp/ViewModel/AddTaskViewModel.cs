@@ -58,11 +58,12 @@ namespace DatabaseSQLTodoListApp.ViewModel
         {
             todoListViewModel = originalTodoListViewModel;
 
-            AddCommand = new AddTodoTaskCommand(todoListViewModel, this);
+            AddCommand = new AddTodoTaskCommand(todoListViewModel, this, addTodoWindow);
             CancelCommand = new CancelCommand(addTodoWindow);
 
-            TaskName = "Default Name";
+            TaskName = "";
             Deadline = DateTime.Now;
+            CurrentCategory = Category.home;
         }
     }
 }
