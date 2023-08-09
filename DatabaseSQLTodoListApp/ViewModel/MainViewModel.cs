@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Effects;
 
 namespace DatabaseSQLTodoListApp.ViewModel
 {
@@ -18,11 +19,18 @@ namespace DatabaseSQLTodoListApp.ViewModel
 
         public ICommand ShowAddTodoWindowCommand { get; }
 
+        Window loginWindow;
+
         public MainViewModel(Window mainWindow)
         {
             todoListViewModel= new TodoListViewModel();
 
             ShowAddTodoWindowCommand = new ShowAddTodoWindowCommand(mainWindow, todoListViewModel);
+
+            mainWindow.Effect = new BlurEffect();
+            loginWindow = new UserLoginWindow();
+            //loginWindow.Owner = mainWindow;
+            loginWindow.ShowDialog();
         }
     }
 }
