@@ -9,7 +9,7 @@
         Title="UserLoginWindow" Height="250" Width="300"
         AllowsTransparency="True" WindowStyle="None" Background="Transparent"
         SizeToContent="WidthAndHeight"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <views:Login/>
     </Grid>

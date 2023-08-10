@@ -24,27 +24,10 @@ namespace DatabaseSQLTodoListApp
     public partial class MainWindow : Window
     {
         AddTodoWindow addTodoWindow;
-        //Window window = new Window
-        //{
-        //    Title = "Add todo task",
-        //    Content = new AddTodoWindow(),
-        //    SizeToContent = SizeToContent.WidthAndHeight,
-        //    WindowStyle = WindowStyle.None,
-        //    AllowsTransparency= true,
-        //};
 
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //window.MouseDown += Window_MouseDown;
-            //window.ShowDialog();
-            addTodoWindow = new AddTodoWindow();
-            addTodoWindow.MouseDown += Window_MouseDown;
-            addTodoWindow.ShowDialog();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

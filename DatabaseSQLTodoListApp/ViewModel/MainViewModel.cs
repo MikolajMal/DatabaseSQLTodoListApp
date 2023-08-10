@@ -26,11 +26,6 @@ namespace DatabaseSQLTodoListApp.ViewModel
             todoListViewModel= new TodoListViewModel();
 
             ShowAddTodoWindowCommand = new ShowAddTodoWindowCommand(mainWindow, todoListViewModel);
-
-            mainWindow.Effect = new BlurEffect();
-            loginWindow = new UserLoginWindow();
-            //loginWindow.Owner = mainWindow;
-            loginWindow.ShowDialog();
         }
     }
 }

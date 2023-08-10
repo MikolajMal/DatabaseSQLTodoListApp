@@ -20,6 +20,18 @@ namespace DatabaseSQLTodoListApp
             {
                 DataContext = new MainViewModel(MainWindow)
             };
+
+            Window loginWindow = new UserLoginWindow();
+            UserLoginViewModel userLoginViewModel = new UserLoginViewModel(loginWindow);
+            loginWindow.DataContext = userLoginViewModel;
+            loginWindow.ShowDialog();
+
+            if (userLoginViewModel.CloseApp)
+            {
+                Application.Current.Shutdown();
+                return;
+            }
+
             MainWindow.Show();
 
             base.OnStartup(e);

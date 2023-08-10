@@ -57,15 +57,15 @@
                     Style="{StaticResource MainTextBlockStyle}"/>
 
                 <!--Third row-->
-                <PasswordBox Grid.Row="2" Width="200"/>
+                <PasswordBox x:Name="passwordBox" Grid.Row="2" Width="200" Height="30"/>
 
 
                 <!--Sixth row-->
                 <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button>
+                    <Button Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=passwordBox}">
                         <TextBlock Style="{StaticResource ButtonWhiteTextBlockStyle}" Text="LOGIN"/>
                     </Button>
-                    <Button>
+                    <Button Command="{Binding ExitCommand}">
                         <TextBlock Style="{StaticResource ButtonWhiteTextBlockStyle}" Text="EXIT"/>
                     </Button>
                 </StackPanel>
