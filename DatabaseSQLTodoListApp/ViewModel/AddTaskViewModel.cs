@@ -13,8 +13,9 @@ namespace DatabaseSQLTodoListApp.ViewModel
     public enum Category { home, work, hobby, sport, learning, other }
     public class AddTaskViewModel : ViewModelBase
     {
-        string taskName;
         TodoListViewModel todoListViewModel;
+
+        string taskName;
         public string TaskName
         {
             get => taskName;

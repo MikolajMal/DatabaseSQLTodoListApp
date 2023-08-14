@@ -16,10 +16,7 @@ namespace DatabaseSQLTodoListApp
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainWindow = new MainWindow()
-            {
-                DataContext = new MainViewModel(MainWindow)
-            };
+            MainWindow = new MainWindow();
 
             Window loginWindow = new UserLoginWindow();
             UserLoginViewModel userLoginViewModel = new UserLoginViewModel(loginWindow);
@@ -32,6 +29,7 @@ namespace DatabaseSQLTodoListApp
                 return;
             }
 
+            MainWindow.DataContext = new MainViewModel(MainWindow, userLoginViewModel.ConnectionString);
             MainWindow.Show();
 
             base.OnStartup(e);

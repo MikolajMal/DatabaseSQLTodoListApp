@@ -1,5 +1,6 @@
 ﻿using DatabaseSQLTodoListApp.Commands;
 using DatabaseSQLTodoListApp.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,11 +20,9 @@ namespace DatabaseSQLTodoListApp.ViewModel
 
         public ICommand ShowAddTodoWindowCommand { get; }
 
-        Window loginWindow;
-
-        public MainViewModel(Window mainWindow)
+        public MainViewModel(Window mainWindow, string connectionString)
         {
-            todoListViewModel= new TodoListViewModel();
+            todoListViewModel= new TodoListViewModel(connectionString);
 
             ShowAddTodoWindowCommand = new ShowAddTodoWindowCommand(mainWindow, todoListViewModel);
         }

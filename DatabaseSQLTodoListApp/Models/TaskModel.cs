@@ -17,7 +17,7 @@ namespace DatabaseSQLTodoListApp.Models
         {
             Name = name;
             Category = category;
-            Deadline = deadline.ToString("f");
+            Deadline = deadline.ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }

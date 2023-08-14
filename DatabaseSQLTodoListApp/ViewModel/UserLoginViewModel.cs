@@ -12,9 +12,18 @@ namespace DatabaseSQLTodoListApp.ViewModel
 {
     internal class UserLoginViewModel : ViewModelBase
     {
-        UserViewModel userViewModel;
+        public string ConnectionString { get; set; }
 
-        public string Password { get; set; }
+        Visibility wrongPasswordInfoVisibility = Visibility.Hidden;
+        public Visibility WrongPasswordInfoVisibility
+        {
+            get => wrongPasswordInfoVisibility;
+            set
+            {
+                wrongPasswordInfoVisibility = value;
+                OnPropertyChanged(nameof(WrongPasswordInfoVisibility));
+            }
+        }
 
         public bool CloseApp { get; set; }
 
@@ -25,9 +34,7 @@ namespace DatabaseSQLTodoListApp.ViewModel
         {
             CloseApp = false;
 
-            userViewModel = new UserViewModel(new UserModel("123"));
-
-            LoginCommand = new LoginCommand(loginWindow);
+            LoginCommand = new LoginCommand(loginWindow, this);
             ExitCommand = new ExitCommand(loginWindow, this);
         }
     }

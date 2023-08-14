@@ -41,6 +41,7 @@
                     <RowDefinition Height="1.5*"/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 
@@ -59,9 +60,16 @@
                 <!--Third row-->
                 <PasswordBox x:Name="passwordBox" Grid.Row="2" Width="200" Height="30"/>
 
+                <!--Fourth row-->
+                <TextBlock Grid.Row="3"
+                           Text="Incorrect password"
+                           Foreground="Red"
+                           VerticalAlignment="Top"
+                           FontSize="10"
+                           Visibility="{Binding WrongPasswordInfoVisibility}"/>
 
                 <!--Sixth row-->
-                <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=passwordBox}">
                         <TextBlock Style="{StaticResource ButtonWhiteTextBlockStyle}" Text="LOGIN"/>
                     </Button>
