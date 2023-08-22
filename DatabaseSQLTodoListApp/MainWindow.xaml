@@ -13,7 +13,7 @@
     <Border
         Background="#2C2E46"
         BorderThickness="1"
-        CornerRadius="20">
+        CornerRadius="20" Cursor="">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition MaxHeight="120"/>
@@ -31,9 +31,15 @@
 
 
             <!--Third row-->
-            <Button Grid.Row="2" Command="{Binding ShowAddTodoWindowCommand}">
-                <TextBlock Text="ADD" Style="{StaticResource DarkTextBlokStyle}"/>
-            </Button>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Margin="20" Command="{Binding ShowAddTodoWindowCommand}">
+                    <TextBlock Text="ADD" Style="{StaticResource DarkTextBlokStyle}"/>
+                </Button>
+                <Button Margin="20" Command="{Binding DeleteCommand}">
+                    <TextBlock Text="DELETE" Style="{StaticResource DarkTextBlokStyle}"/>
+                </Button>
+            </StackPanel>
+
         </Grid>
     </Border>
 

@@ -19,12 +19,15 @@ namespace DatabaseSQLTodoListApp.ViewModel
         public TodoListViewModel todoListViewModel { get; }
 
         public ICommand ShowAddTodoWindowCommand { get; }
+        public ICommand DeleteCommand { get; }
 
         public MainViewModel(Window mainWindow, string connectionString)
         {
             todoListViewModel= new TodoListViewModel(connectionString);
 
             ShowAddTodoWindowCommand = new ShowAddTodoWindowCommand(mainWindow, todoListViewModel);
+
+            DeleteCommand = new DeleteCommand(todoListViewModel);
         }
     }
 }

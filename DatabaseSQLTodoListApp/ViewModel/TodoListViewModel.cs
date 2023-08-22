@@ -14,6 +14,21 @@ namespace DatabaseSQLTodoListApp.ViewModel
         ObservableCollection<TaskViewModel> taskViewModels;
         public IEnumerable<TaskViewModel> TaskViewModels => taskViewModels;
 
+        TaskViewModel selectedTask;
+        public TaskViewModel SelectedTask
+        {
+            get { return selectedTask; }
+            set
+            {
+                if (selectedTask != value)
+                {
+                    selectedTask = value;
+                    OnPropertyChanged(nameof(SelectedTask));
+                }
+            }
+        }
+
+
         public string ConnectionString { private get; set; }
 
         public ObservableCollection<TaskViewModel> GetAllTasks()
@@ -60,8 +75,6 @@ namespace DatabaseSQLTodoListApp.ViewModel
 
         public void AddTask(TaskViewModel taskViewModel)
         {
-            //taskViewModels.Add(taskViewModel);
-
             MySqlConnection connection = new MySqlConnection(ConnectionString);
 
             connection.Open();
@@ -80,6 +93,27 @@ namespace DatabaseSQLTodoListApp.ViewModel
 
             taskViewModels = GetAllTasks();
             
+            OnPropertyChanged(nameof(taskViewModels));
+        }
+
+        public void DeleteTask(TaskViewModel taskViewModel)
+        {
+            MySqlConnection connection = new MySqlConnection(ConnectionString);
+
+            connection.Open();
+
+            string commandString = "DELETE FROM tasks WHERE task = @task_name";
+
+            MySqlCommand command = new MySqlCommand(commandString, connection);
+
+            command.Parameters.AddWithValue("@task_name", taskViewModel.Name);
+
+            command.ExecuteNonQuery();
+
+            connection.Close();
+
+            taskViewModels = GetAllTasks();
+
             OnPropertyChanged(nameof(taskViewModels));
         }
     }
