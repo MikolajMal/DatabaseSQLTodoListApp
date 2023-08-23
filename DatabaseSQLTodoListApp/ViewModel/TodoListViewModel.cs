@@ -98,6 +98,8 @@ namespace DatabaseSQLTodoListApp.ViewModel
 
         public void DeleteTask(TaskViewModel taskViewModel)
         {
+            if(taskViewModel == null) return;
+
             MySqlConnection connection = new MySqlConnection(ConnectionString);
 
             connection.Open();

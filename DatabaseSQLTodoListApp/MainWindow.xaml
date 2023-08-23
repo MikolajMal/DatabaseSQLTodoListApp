@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:DatabaseSQLTodoListApp.Views"
         xmlns:viewModels="clr-namespace:DatabaseSQLTodoListApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="360" >
+        Title="MainWindow" Height="600" Width="420" >
         <!--AllowsTransparency="True" Background="Transparent">
         WindowStyle="None">-->
     <Border

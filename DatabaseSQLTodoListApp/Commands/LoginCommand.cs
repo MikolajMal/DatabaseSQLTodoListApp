@@ -24,10 +24,11 @@ namespace DatabaseSQLTodoListApp.Commands
 
             string connectionString = $"datasource=localhost;port=3306;username=root;password={passwordBox.Password};database=todolistapp";
 
-            MySqlConnection connection = new MySqlConnection(connectionString);
+            MySqlConnection connection;
 
             try
             {
+                connection = new MySqlConnection(connectionString);
                 connection.Open();
             }
             catch(MySql.Data.MySqlClient.MySqlException ex)

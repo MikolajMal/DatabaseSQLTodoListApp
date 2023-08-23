@@ -85,7 +85,8 @@
 
             <!--Third row-->
             <TextBox Grid.Row="2" Style="{StaticResource InputStyle}"
-                     Text="{Binding TaskName, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding TaskName, UpdateSourceTrigger=PropertyChanged}"
+                     MaxLength="16"/>
             
             <!--Fourth row-->
             <TextBlock Grid.Row="3"
